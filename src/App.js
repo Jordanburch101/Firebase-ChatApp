@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import './App.css';
 
 // firebase import
@@ -71,6 +71,19 @@ function ChatRoom() {
 
   const [formValue, setFormValue] = useState('');
 
+  const sendMessage = async(e) => {
+    e.preventDefault();
+    const {uid, photoURL} = auth.currentUser;
+
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid, 
+      photoURL
+    });
+
+    setFormValue('');
+  }
 
   return (
     <>
@@ -78,8 +91,8 @@ function ChatRoom() {
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
       </div> 
 
-      <form>
-        
+      <form onSubmit={sendMessage}>
+        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
         <button type="submit">Message</button>
       </form>
     </>
