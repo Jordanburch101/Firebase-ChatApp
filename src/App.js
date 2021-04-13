@@ -42,7 +42,7 @@ function App() {
   );
 
 }
-test
+
 // Sign in = with google
 function SignIn() {
   const signInWithGoogle = () => {
@@ -60,6 +60,41 @@ function SignOut() {
   return auth.currentUser && (
     <button onClick={() => auth.signOut()}>Sign</button>
   )
+}
+
+// Chat Room logic
+function ChatRoom() {
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createdAt').limit(25);
+
+  const [messages] = useCollectionData(query, { idField: 'id' }); // Listen to data in realtime
+
+  const [formValue, setFormValue] = useState('');
+
+
+  return (
+    <>
+      <div>
+        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+      </div> 
+
+      <form>
+        
+        <button type="submit">Message</button>
+      </form>
+    </>
+  )
+}
+
+function ChatMessage(props) {
+  const {text, uid, photoURL} = props.message;
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  return(
+    <div className={`message ${messageClass}`}>
+      <img src={photoURL} />
+      <p>{text}</p>
+    </div>
+  ) 
 }
 
 export default App;
