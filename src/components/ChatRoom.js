@@ -12,15 +12,16 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatMessage from './ChatMessage';
 
 
+
 function ChatRoom(props) {
     const dummy = useRef()
   
     const messagesRef = props.firestore.collection('messages');
-    const query = messagesRef.orderBy('createdAt').limit(25);
-  
+    const query = messagesRef.orderBy('createdAt');
+    
     const [messages] = useCollectionData(query, { idField: 'id' }); // Listen to data in realtime
     const [formValue, setFormValue] = useState('');
-  
+    
     const sendMessage = async(e) => {
       e.preventDefault();
       const {uid, photoURL} = props.auth.currentUser;
@@ -38,10 +39,10 @@ function ChatRoom(props) {
   
     return (
       <>
-        <div>
+        <main>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={props.auth} />)}
           <div ref={dummy}></div>
-        </div> 
+        </main> 
   
         <form onSubmit={sendMessage}>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />

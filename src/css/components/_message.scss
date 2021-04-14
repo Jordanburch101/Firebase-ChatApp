@@ -1,0 +1,25 @@
+// ======================================
+//  Messages
+// ======================================
+
+.message {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  img {
+    width: 4rem;
+    border-radius: 50%;
+    margin: 0 1rem;
+  }
+}
+
+.sent {
+  p {
+    width:
+    background: red;
+  }
+}
+
+.received {
+  flex-direction: row-reverse;
+}

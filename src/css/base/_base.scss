@@ -7,11 +7,34 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background-color: rgb(146, 146, 146);
+  background-color: color(secondary);
 }
 
 .App {
-  background-color: blue;
-  width: 70%;
+  background-color: color(bg);
+  text-align: center;
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+header {
+  height: 10vh;
+}
+
+main {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+form {
+  height: 10vh;
 }
