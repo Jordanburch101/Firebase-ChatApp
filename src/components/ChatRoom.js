@@ -1,0 +1,54 @@
+import React, {useRef, useState} from 'react';
+
+// Firebase import
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+// Firebase hooks
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+// Component imports
+import ChatMessage from './ChatMessage';
+
+
+function ChatRoom(props) {
+    const dummy = useRef()
+  
+    const messagesRef = props.firestore.collection('messages');
+    const query = messagesRef.orderBy('createdAt').limit(25);
+  
+    const [messages] = useCollectionData(query, { idField: 'id' }); // Listen to data in realtime
+    const [formValue, setFormValue] = useState('');
+  
+    const sendMessage = async(e) => {
+      e.preventDefault();
+      const {uid, photoURL} = props.auth.currentUser;
+  
+      await messagesRef.add({
+        text: formValue,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        uid, 
+        photoURL
+      });
+  
+      setFormValue('');
+      dummy.current.scrollIntoView({behavior: 'smooth'});
+    }
+  
+    return (
+      <>
+        <div>
+          {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={props.auth} />)}
+          <div ref={dummy}></div>
+        </div> 
+  
+        <form onSubmit={sendMessage}>
+          <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
+          <button type="submit">Message</button>
+        </form>
+      </>
+    )
+}
+
+export default ChatRoom;
