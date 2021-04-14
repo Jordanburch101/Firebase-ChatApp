@@ -1,14 +1,18 @@
 import React, {useRef, useState} from 'react';
-import './App.css';
+import './styles.scss';
 
-// firebase import
+// Firebase import
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-// firebase hooks
+// Firebase hooks
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+// Component imports 
+import SignIn from './components/SignIn';
+import SignOut from './components/SignOut';
 
 firebase.initializeApp({
   apiKey: "AIzaSyB73FTXWR8ETIJNduacO0HocbciY8HhRO0",
@@ -24,51 +28,33 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 function App() {
-
-
   const [user] = useAuthState(auth);
-
   return (
+
+
     <div className="App">
       <header>
-
       </header>
 
       <section>
-        {user ? <ChatRoom /> : <SignIn />}
+        {user ? <ChatRoom /> : <SignIn auth={auth} />}
       </section>
-
+      <SignOut auth={auth} />
     </div>
+
+
   );
-
 }
 
-// Sign in = with google
-function SignIn() {
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  }
-
-  return (
-    <button onClick = {signInWithGoogle}>Sign in with Google</button>
-  )
-}
-
-// Sign out
-function SignOut() {
-  return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign</button>
-  )
-}
 
 // Chat Room logic
 function ChatRoom() {
+  const dummy = useRef()
+
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' }); // Listen to data in realtime
-
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async(e) => {
@@ -83,12 +69,14 @@ function ChatRoom() {
     });
 
     setFormValue('');
+    dummy.current.scrollIntoView({behavior: 'smooth'});
   }
 
   return (
     <>
       <div>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        <div ref={dummy}></div>
       </div> 
 
       <form onSubmit={sendMessage}>
