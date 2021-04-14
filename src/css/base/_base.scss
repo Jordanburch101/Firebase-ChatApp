@@ -1,0 +1,17 @@
+// ======================================
+//  Base
+// ======================================
+
+* {
+  font-family: $font-primary;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(146, 146, 146);
+}
+
+.App {
+  background-color: blue;
+  width: 70%;
+}
