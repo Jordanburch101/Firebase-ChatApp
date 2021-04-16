@@ -36,10 +36,11 @@ function App() {
 
     <div className="App">
       <header>
+      <p>Chat App</p>
        <SignOut auth={auth} />
       </header>
 
-      <section>
+      <section className="appBody">
         {user ? <ChatRoom auth={auth} firestore={firestore} /> : <SignIn auth={auth} />}
       </section>
     </div>
