@@ -9,17 +9,28 @@
   img {
     width: 4rem;
     border-radius: 50%;
-    margin: 0 1rem;
+    margin: 0 1em;
   }
 }
 
 .sent {
   p {
-    width:
-    background: red;
+    background: color(primary);
   }
 }
 
 .received {
   flex-direction: row-reverse;
+  p {
+    background: color(form-text);
+  }
+}
+
+.received,
+.sent {
+  p {
+    height: 3em;
+    border-radius: 2rem;
+    padding: 1em;
+  }
 }

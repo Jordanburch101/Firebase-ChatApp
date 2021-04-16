@@ -45,8 +45,8 @@ function ChatRoom(props) {
         </main> 
   
         <form onSubmit={sendMessage}>
-          <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
-          <button type="submit">Message</button>
+          <input placeholder="Aa" value={formValue} onChange={(e) => setFormValue(e.target.value)} />
+          <button className="sendBtn" type="submit">✉️</button>
         </form>
       </>
     )

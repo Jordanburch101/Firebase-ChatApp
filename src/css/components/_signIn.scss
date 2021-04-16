@@ -1,0 +1,42 @@
+// ======================================
+//  Sign in
+// ======================================
+
+// .signIn {
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+// }
+
+// .appBody {
+//   position: relative;
+// // }
+
+.signIn {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: color(form-text);
+  font-size: 1.7rem;
+  width: 25rem;
+  height: 6rem;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  &:hover,
+  &:focus {
+    background: #4285f4;
+    color: #fff;
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+  }
+}

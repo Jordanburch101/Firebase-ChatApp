@@ -1,0 +1,31 @@
+// ======================================
+//  Component Imports
+// ======================================
+
+header {
+  background: color(bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 2em;
+  p {
+    font-size: 4rem;
+    color: color(accent);
+  }
+}
+
+.signOut {
+  height: 6rem;
+  width: 12rem;
+  color: #fff;
+  font-size: 1.8rem;
+  background: color(primary);
+  border-radius: 1.5rem;
+  border: none;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  &:hover,
+  &:focus {
+    background: color(accent);
+    color: color(bg);
+  }
+}
