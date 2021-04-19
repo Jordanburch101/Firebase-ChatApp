@@ -8,8 +8,9 @@ header {
   align-items: center;
   justify-content: space-between;
   margin: 0 2em;
-  p {
+  h1 {
     font-size: 4rem;
+    font-weight: normal;
     color: color(accent);
   }
 }

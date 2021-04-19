@@ -38,3 +38,13 @@ input {
     color: color(bg);
   }
 }
+
+.sendBtn:disabled {
+  background: hsl(226, 100%, 75%);
+  cursor: not-allowed;
+  &:hover,
+  &:focus {
+    background: hsl(7, 94%, 66%);
+    color: color(bg);
+  }
+}

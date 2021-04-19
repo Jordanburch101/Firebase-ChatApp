@@ -28,16 +28,14 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+
 function App() {
   const [user] = useAuthState(auth);
 
-
   return (
-
-
     <div className="App">
       <header>
-      <p>ChatApp 💬</p>
+      <h1>ChatApp 💬</h1>
        <SignOut auth={auth} />
       </header>
 
@@ -47,10 +45,7 @@ function App() {
         {user ? <ChatRoom auth={auth} firestore={firestore} /> : <SignIn auth={auth} />}
       </section>
     </div>
-
-
   );
 }
 
-console.log(auth.name)
 export default App;
