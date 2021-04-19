@@ -21,10 +21,10 @@ function ChatRoom(props) {
     const [messages] = useCollectionData(query, { idField: 'id' }); // Listen to data in realtime
     const [formValue, setFormValue] = useState('');
 
-    
     useEffect(() => {
       dummy.current.scrollIntoView({behavior: 'smooth'}); // Scrolls to bottom of chat room on load & new message.
     });
+
 
     const sendMessage = async(e) => {
       e.preventDefault();
@@ -34,12 +34,12 @@ function ChatRoom(props) {
         text: formValue,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         uid, 
-        photoURL
+        photoURL,
+        
       });
-  
+
       setFormValue('');
     }
-
   
     return (
       <>
