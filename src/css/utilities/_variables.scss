@@ -4,9 +4,9 @@
 
 // Colors
 $colors: (
-  primary: #636fa4,
+  primary: hsl(226, 100%, 65%),
   secondary: #e8cbc0,
-  accent: #ffaf7b,
+  accent: hsl(226, 100%, 70%),
   accent2: #ffcb9e,
   bg: #2e2e2e,
   bg-dark: #2d2c2c,
@@ -22,6 +22,6 @@ $font-primary: "Poppins", sans-serif;
 
 // breakpoints
 $break-med: 768px;
-$break-lrg: 1400px;
+$break-lrg: 1200px;
 $break-sup: 2200px;
 $break-xl: 2800px;

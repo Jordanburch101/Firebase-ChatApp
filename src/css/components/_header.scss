@@ -29,3 +29,27 @@ header {
     color: color(bg);
   }
 }
+
+.social {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  fill: color(bg-dark);
+  align-items: center;
+  list-style-type: none;
+  ul {
+  }
+  svg {
+    width: 35px;
+    margin: 1em;
+    transition: fill 200ms ease-in-out;
+    &:hover,
+    &:focus {
+      fill: #fff;
+    }
+  }
+  @include media(lrg) {
+    display: flex;
+  }
+}
