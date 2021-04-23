@@ -19,11 +19,26 @@ function ChatRoom(props) {
     const query = messagesRef.orderBy('createdAt').limitToLast(25);
     
     const [messages] = useCollectionData(query, { idField: 'id' }); // Listen to data in realtime
-    const [formValue, setFormValue] = useState('');
 
-    useEffect(() => {
+    const [formValue, setFormValue] = useState('');
+    const [count, setCount] = useState(0); 
+
+    function handleScroll() {
       dummy.current.scrollIntoView({behavior: 'smooth'}); // Scrolls to bottom of chat room on load & new message.
-    });
+    }
+
+    
+    // Scrolls to last message after 1s delay after component mounts
+    useEffect(() => {
+      console.log('Hello from useEffect!');
+      handleScroll();
+    }, [count]);
+
+    if(count < 1) {
+      setTimeout(() => {
+        setCount(count + 1);
+      }, 1000);
+    }
 
 
     const sendMessage = async(e) => {
@@ -37,7 +52,7 @@ function ChatRoom(props) {
         photoURL,
         
       });
-
+      handleScroll();
       setFormValue('');
     }
   
