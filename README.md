@@ -40,7 +40,7 @@ List of features ready and TODOs for future development
 
 - Full-stack application presenting data in real-time.
 - Working Google Authentication.
-- Custom SCSS organized down by components.
+- Custom SCSS organized by components.
 
 To-do list:
 
