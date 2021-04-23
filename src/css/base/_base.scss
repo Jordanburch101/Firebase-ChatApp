@@ -46,3 +46,18 @@ form {
 button {
   cursor: pointer;
 }
+
+a {
+  outline: none;
+  text-decoration: none;
+  // font-size: 1.2em;
+  color: color(primary);
+  transition: color 200ms ease-in-out, text-shadow 200ms ease-in-out;
+  &:hover,
+  &:focus {
+    // color: color(accent);
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff;
+    color: #ffffff;
+  }
+}

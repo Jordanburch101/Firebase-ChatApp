@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <header>
-      <h1>ChatApp 💬</h1>
+      <h1><a href="https://github.com/Jordanburch101/Firebase-ChatApp" target="_blank" rel="noreferrer">ChatApp 💬</a></h1>
        <SignOut auth={auth} />
       </header>
 

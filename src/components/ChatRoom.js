@@ -30,7 +30,6 @@ function ChatRoom(props) {
     
     // Scrolls to last message after 1s delay after component mounts
     useEffect(() => {
-      console.log('Hello from useEffect!');
       handleScroll();
     }, [count]);
 
