@@ -23,7 +23,7 @@ Once logged in users can see 25 of the latest messages and then proceed to post 
 
 ![Example screenshot](screenshots/Screenshot1.png)
 ![Example screenshot](screenshots/Screenshot2.png)
-![Example screenshot](screenshots/Screenshot2.png)
+![Example screenshot](screenshots/Screenshot3.png)
 
 ## Technologies
 
