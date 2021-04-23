@@ -41,7 +41,7 @@ input {
 }
 
 .sendBtn:disabled {
-  opacity: 70%;
+  background: hsla(226, 100%, 65%, 0.486);
   cursor: not-allowed;
   &:hover,
   &:focus {

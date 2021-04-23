@@ -14,13 +14,13 @@
 }
 
 .sent {
+  flex-direction: row-reverse;
   p {
     background: color(primary);
   }
 }
 
 .received {
-  flex-direction: row-reverse;
   p {
     background: color(form-text);
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/app.scss';
 
 // Firebase import
 import firebase from 'firebase/app';
